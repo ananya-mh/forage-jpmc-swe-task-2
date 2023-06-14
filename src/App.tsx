@@ -25,7 +25,7 @@ class App extends Component<{}, IState> {
       // We use this state to parse data down to the child element (Graph) as element property
       data: [],
       //setting initial state of graph as hidden
-      showGraph: false;
+      showGraph: false,
     };
   }
 
@@ -45,7 +45,7 @@ class App extends Component<{}, IState> {
   getDataFromServer() {
     //added loop to get data from server continuously
     let x = 0;
-    const interval = setInterval((){
+    const interval = setInterval(() =>{
       DataStreamer.getData((serverResponds: ServerRespond[]) => {
         this.setState({ 
           data: serverResponds,
@@ -54,7 +54,7 @@ class App extends Component<{}, IState> {
     });
     x++;
     if(x>1000){
-      clear Interval(interval);
+      clearInterval(interval);
      }
     },100);
   }
